@@ -27,6 +27,7 @@ class Semillero(models.Model):
 
     def __str__(self): return self.nombre_semillero
     
+   
     
 #x    
 
@@ -89,6 +90,7 @@ class Control_fitosanitario(models.Model):
     descripcion = models.CharField(max_length=300)
     fk_id_desarrollan = models.ForeignKey(Desarrollan, on_delete=models.SET_NULL, null=True)  
     def __str__(self): return self.fecha_control 
+    
     
     
 
