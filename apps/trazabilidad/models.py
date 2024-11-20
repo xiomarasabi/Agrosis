@@ -100,8 +100,7 @@ class Actividad(models.Model):
 
     def __str__(self):
         return self.nombre_actividad
-
-
+    
 class Realiza(models.Model):
     fk_id_cultivo = models.ForeignKey(Cultivo, on_delete=models.SET_NULL, null=True)
     fk_id_actividad = models.ForeignKey(Actividad, on_delete=models.SET_NULL, null=True) 
