@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Actividad, Realiza, Especie, TipoCultivo, Semillero, AsignacionActividades, Programacion, Notificacion, ControlUsoInsumo
+from apps.trazabilidad.models import Actividad, Realiza, Especie, TipoCultivo, Semillero, AsignacionActividades, Programacion, Notificacion, ControlUsoInsumo,CalendarioLunar
 
 class ActividadSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,4 +44,9 @@ class NotificacionSerializer(serializers.ModelSerializer):
 class ControlUsoInsumoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ControlUsoInsumo
+        fields = '__all__'
+
+class CalendarioLunarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CalendarioLunar
         fields = '__all__'

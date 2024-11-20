@@ -15,8 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
+from apps.trazabilidad.api.router import router_actividad, router_asignacion_actividad, router_control_uso_insumo, router_especie, router_notificacion, router_programacion, router_realiza, router_semillero, router_tipo_cultivo, router_calendario_lunar
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -35,6 +35,18 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('api/', include(router_actividad.urls)),
+    path('api/', include(router_realiza.urls)),
+    path('api/', include(router_especie.urls)),
+    path('api/', include(router_tipo_cultivo.urls)),
+    path('api/', include(router_semillero.urls)),
+    path('api/', include(router_asignacion_actividad.urls)),
+    path('api/', include(router_programacion.urls)),
+    path('api/', include(router_notificacion.urls)),
+    path('api/', include(router_control_uso_insumo.urls)),
+    path('api/', include(router_calendario_lunar.urls)),
+
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
